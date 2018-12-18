@@ -1,0 +1,14 @@
+#presentationContainer {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 1s;
+}
+
+#reultBox {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 1s;
+}
+
+.card {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 1s;
+}

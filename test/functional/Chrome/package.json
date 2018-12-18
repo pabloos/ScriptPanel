@@ -1,0 +1,23 @@
+{
+  "name": "Chrome",
+  "jest": {
+    "verbose": true
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "bootstrap.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-puppeteer": "^3.3.1"
+  }
+}

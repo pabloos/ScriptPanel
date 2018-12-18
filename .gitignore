@@ -1,0 +1,20 @@
+#macos directory config files
+.DS_Store
+
+#vscode config files
+.vscode
+sp.code-workspace
+
+#vagrant
+\.vagrant/
+
+logicserver/bin/**
+
+mongoserver/data/**
+
+fileserver/admin/+*
+
+ldapserver/database/**
+ldapserver/config/**
+ldapserver/ldif/**
+ldapserver/definiciones/**

@@ -1,0 +1,354 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- <link rel="icon" href="./icon.jpg"> -->
+
+        <title>ScriptPanel</title>
+        
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <!-- timeline CSS -->
+        <link rel="stylesheet" type="text/css" href="./css/timeline.css">
+        
+        <!-- fonts -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+        <link rel="stylesheet" type="text/css" href="./css/ubuntu-font.css">
+
+        <!-- animations CSS -->
+        <link rel="stylesheet" type="text/css" href="./css/animations.css">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        
+        <!-- own CSS -->
+        <link href="css/signup.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <!-- <img src="./icon.jpg" width="30" height="30" alt=""> -->
+                ScriptPanel
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <div class="btn-group">
+                        <button id="loginButton"  type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+                        <button id="signupButton" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#signupModal" style="margin-left : 1rem">Sign Up</button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+
+        </br>
+
+        <main role="main" id="main">
+            <div class="container-fluid" id="presentationContainer">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="container">
+                            <br>
+                            
+                            <h1 class="page-header" style="">Launch your scripts</h1>
+                            <h1 id="ubuntu">...Remotly</h1>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-badge">                                    
+                                    <svg class="timeline-badge glyphicon" xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 14.002a.998.998 0 0 1-.998.998H1.001A1 1 0 0 1 0 13.999V13c0-2.633 4-4 4-4s.229-.409 0-1c-.841-.62-.944-1.59-1-4 .173-2.413 1.867-3 3-3s2.827.586 3 3c-.056 2.41-.159 3.38-1 4-.229.59 0 1 0 1s4 1.367 4 4v1.002z"/></svg>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Log in</h4>
+                                    </div>
+                                    
+                                    <div class="timeline-body">
+                                        <p>
+                                            Create a user with your organization to have a particular repository ready to save your scripts!
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                                
+                            <li class="timeline-inverted">
+                                <div class="timeline-badge warning">
+                                    <svg class="timeline-badge glyphicon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7 9H5l3-3 3 3H9v5H7V9zm5-4c0-.44-.91-3-4.5-3C5.08 2 3 3.92 3 6 1.02 6 0 7.52 0 9c0 1.53 1 3 3 3h3v-1.3H3c-1.62 0-1.7-1.42-1.7-1.7 0-.17.05-1.7 1.7-1.7h1.3V6c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V12h2c2.08 0 4-1.16 4-3.5C16 6.06 14.08 5 12 5z"/></svg>
+                                </div>
+
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Upload yout scripts</h4>
+                                    </div>
+                                    
+                                    <div class="timeline-body">
+                                        <p>
+                                            Use the repository as a workspace
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                                          
+                            <li>
+                                <div class="timeline-badge danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>                         
+                                </div>
+                                        
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Configure</h4>
+                                    </div>
+                                            
+                                    <div class="timeline-body">
+                                        <p>
+                                            Set the configuration for your scripts that best suits your needs
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                                          
+                            <li class="timeline-inverted">
+                                <div class="timeline-badge success">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 10h4v1H7v-1zm-3 1l3-3-3-3-.75.75L5.5 8l-2.25 2.25L4 11zm10-8v10c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v10h12V3z"/></svg>                                    </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Run!</h4>
+                                    </div>
+                                        
+                                    <div class="timeline-body">
+                                        <p>
+                                            Try all the remote executions you want
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="container">
+            <hr>
+            <p>&copy; Pablo Cumpián Díaz - I.E.S. Politécnico Jesús Marín - Administración de Sistemas Informáticos en Red</p>
+        </footer>
+    </body>
+
+    <!-- STATIC MODALS -->
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+                    <form class="form-signin" id="signupForm">                                
+                        <div class="">
+                            <label for="inputUser" class="sr-only">Username</label>
+                            <input type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+                        </div>
+                        
+                        <div class="">
+                            <label for="inputEmail" class="sr-only">Mail</label>
+                            <input type="text" id="inputEmail" class="form-control" placeholder="Mail" required>
+                        </div>
+
+                        <div class="">
+                            <label for="inputCompany" class="sr-only">Company</label>
+                            <input type="text" id="inputCompany" class="form-control" placeholder="Company" required>
+                        </div>
+                        <div class="">
+                            <label for="inputDepartment" class="sr-only">Department</label>
+                            <input type="text" id="inputDepartment" class="form-control" placeholder="Department" required>
+                        </div>
+
+                        <div class="">
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id="signupAction" type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="px-4 py-3" id="loginForm">
+                        <div class="form-group">
+                            <label for="inputCompanyLogin">Company</label>
+                            <input type="email" class="form-control" id="inputCompanyLogin" placeholder="Apple Inc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputDepartmentLogin">Department</label>
+                            <input type="text" class="form-control" id="inputDepartmentLogin" placeholder="Department">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputUsernameLogin">Name</label>
+                            <input type="text" class="form-control" id="inputUsernameLogin" placeholder="Username">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="inputPasswordLogin">Password</label>
+                            <input type="password" class="form-control" id="inputPasswordLogin" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmailLogin">Email</label>
+                            <input type="email" class="form-control" id="inputEmailLogin" placeholder="email@example.com">
+                        </div>
+                    </form>
+                </div>
+                    
+                <div class="modal-footer">
+                    <button id="loginAction" type="submit" class="btn btn-primary">Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for upload a script -->
+    <div class="modal fade" id="uploadScriptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Upload a script</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <h5>Script Configuration</h5>
+                    <hr>
+
+                    <h6>Posible Options</h6>
+                        <form class="px-4 py-3" id="uploadScriptFormflags" action="/upload" method="post" enctype="multipart/form-data"></form>
+
+                        <button id="addFlagFieldButton" type="button" class="btn btn-primary" style=" margin-left:5%" > + </button>
+                        <button id="removeFlagFieldButton" type="button" class="btn btn-primary" > - </button>
+                    <hr>
+
+                    <h6>Arguments</h6>
+                        <form class="px-4 py-3" id="uploadScriptFormArgs" action="/upload" method="post" enctype="multipart/form-data"></form>
+
+                        <button id="addArgFieldButton" type="button" class="btn btn-primary" style=" margin-left:5%" > + </button>
+                        <button id="removeArgFieldButton" type="button" class="btn btn-primary" > - </button>
+                    <br>
+
+                    <hr>
+                    <h5>Script Description</h5>
+                    <hr>
+
+                        <div class="form-group">
+                            <!-- <label for="comment">Comment:</label> -->
+                            <textarea class="form-control" rows="5" id="scriptDescription" placeholder="Add a description comment"></textarea>
+                        </div>
+
+                    <hr>    
+                    <h5>Script File</h5>
+                    <hr>
+
+                    <form class="px-4 py-3" id="uploadScriptForm" action="/upload" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="file" name="uploadfile" id="uploadfile" />
+                            <input type="hidden" name="token" value="{{.}}"/>
+                            <!-- <button type="submit" value="upload" id="uploadSubmit"/> -->
+                        </div>
+                    </form>
+                </div>
+                    
+                <div class="modal-footer">
+                    <button id="uploadScriptAction" type="submit" class="btn btn-primary" value="upload">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- JS Cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./js/objects/cookies.js"></script>
+
+    <!-- Init -->
+    <script src="./js/actions/init.js"></script>
+    <script src="./js/objects/langHash.js"></script>
+
+    <!-- JS -->
+    <script src="./js/consts.js"></script>
+    <script src="./js/utils/sleep.js"></script>
+
+    <script src="./js/AJAX/send.js"></script>
+
+    <!-- Components -->
+    <script src="./js/objects/components/createComponent.js"></script>
+    <script src="./js/objects/components/breadcrumb.js"></script>
+    <script src="./js/objects/components/card.js"></script>
+    <script src="./js/objects/components/scriptPanel.js"></script>
+    <script src="./js/objects/components/resultBox.js"></script>
+    <script src="./js/objects/components/runModal.js"></script>
+    <script src="./js/objects/components/userButton.js"></script>
+    <script src="./js/objects/components/userDropdown.js"></script>
+
+    <script src="./js/objects/factory/factory.js"></script>
+    <script src="./js/objects/iterator.js"></script>
+
+    <script src="./js/objects/forms/formCollection.js"></script>
+    <script src="./js/objects/forms/getFormObject.js"></script>
+    <script src="./js/objects/forms/getValuesFromForm.js"></script>
+    
+    <script src="./js/actions/scriptSearch.js"></script>
+    <script src="./js/actions/addScriptsToPanel.js"></script>
+    <script src="./js/actions/getUserScripts.js"></script>
+    <script src="./js/actions/runScript.js"></script>
+
+    <script src="./js/actions/uploadScript.js"></script>
+    <script src="./js/actions/login.js"></script>
+    <script src="./js/actions/signup.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

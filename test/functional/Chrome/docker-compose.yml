@@ -1,0 +1,48 @@
+version: "3.5"
+
+networks:
+  test-net:
+    name: test-net
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/28
+
+  inter-net:
+    external:
+      name: inter-net
+
+services:
+  nodetester:
+    build: .
+    container_name: nodetester
+    tty: true
+
+    networks:
+      test-net:
+        ipv4_address: 10.10.0.3  
+
+    volumes:
+      - ./test:/usr/src/app/test
+
+    # logging:
+    #   driver: none
+
+  chrome:
+    image: browserless/chrome
+    container_name: chrome
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - nodetester
+
+    networks:
+      test-net:
+        ipv4_address: 10.10.0.4
+      inter-net:
+        ipv4_address: 10.0.0.5

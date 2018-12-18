@@ -1,0 +1,183 @@
+version: "3.5"
+
+networks:
+  sp-net: 
+    name: sp-net
+    # maybe this will enable access ports from the outside
+    # driver: bridge 
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/28
+  
+  inter-net:
+    name: inter-net
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/28
+
+volumes:
+  scripts_space:
+    driver_opts:
+      type: none
+      # device: /home/vagrant/arlequin/fileserver
+      device: $PWD/fileserver
+      o: bind
+
+services:
+  mongoserver:
+    image: mongo:latest
+    container_name: ${MONGO_HOST}
+
+    env_file: mongoserver/var.env
+
+    tty: true
+
+    ports:
+      - "27017:27017"
+
+    networks:
+      sp-net:
+
+    volumes:
+      - ./mongoserver/data:/data/db
+      - ./mongoserver/conf:/conf
+      - ./mongoserver/certs:/certs
+
+    command: mongod --config /conf/mongo.conf
+
+  ldapserver:
+    image: osixia/openldap:1.2.0
+    container_name: ${LDAP_HOST}
+
+    env_file: ldapserver/var.env
+    # stdin_open: true
+
+    volumes: 
+      - ./ldapserver/database:/var/lib/ldap
+      - ./ldapserver/config:/etc/ldap/slapd.d
+      - ./ldapserver/certs:/container/service/slapd/assets/certs
+      # - /container/service/slapd/assets/certs/
+    
+    # ports:
+    #   - "389:389"
+    #   - "636:636"
+    
+    domainname: "scriptpanel.com" # important: same as hostname
+    hostname: "scriptpanel.com"
+    
+    networks:
+      sp-net:
+
+  ftpserver:
+    image: fauria/vsftpd
+    container_name: ${FTP_HOST}
+    
+    env_file: fileserver/var.env
+    
+    hostname: "ftp"
+    
+    # ports:
+    #   - "20:20"
+    #   - "21:21"
+  
+    networks:
+      sp-net:
+
+    volumes:
+      - scripts_space:/home/vsftpd:rw
+
+  dockerserver:
+    image: "jpetazzo/dind"
+    # build: "./dockerserver"
+    container_name: ${DIND_HOST}
+
+    hostname: "dind"
+
+    tty: true
+
+    privileged: true
+    
+    environment:
+    - PORT=4444
+
+    command: bash -c "dockerd -H 0.0.0.0:4444 -H unix:///var/run/docker.sock"
+
+    # command: >
+    #   bash -c  "(dockerd -H 0.0.0.0:4444 -H unix:///var/run/docker.sock &) && \
+    #             sleep 5 && \
+    #             docker pull bash:4.4 && \
+    #             docker pull python:2.7 && \
+    #             docker pull perl:5.24 && \
+    #             docker pull ruby:2.5 && \
+    #             # docker pull iron/ruby && \
+    #             # sudo chmod -R 777 /home/vagrant/arlequin/fileserver/admin/ && \
+    #             bash"
+
+    networks:
+      sp-net:
+
+    volumes:
+      - scripts_space:/home/scripts
+
+  webserver:
+    image: alpine:3.7
+    container_name: ${WEB_HOST}
+    
+    env_file:
+      - ./mongoserver/var.env
+      - ./dockerserver/var.env
+      - ./fileserver/var.env
+      - ./ldapserver/var.env
+
+    depends_on: 
+      - mongoserver
+      - ldapserver
+      - dockerserver
+      - ftpserver
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./webserver/:/webserver/
+      - ./ldapserver/certs/:/certs/
+      - ./mongoserver/certs:/mongocerts/
+
+    working_dir: /webserver/bin/
+    command: ./arlequin-latest-linux
+
+    networks:
+      sp-net:
+      inter-net:
+
+
+####
+  builder:
+    container_name: builder
+    build: 
+      context: .
+      target: builder
+    volumes:
+      - ".:/go/src/ScriptPanel/scriptpanel"
+
+  tester:
+    container_name: tester
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: tester
+
+    volumes:
+      - "./:/go/src/ScriptPanel/"
+
+    command: > 
+      bash -c  "go test -v ./... -coverprofile=coverage.out && \
+                go tool cover -func=coverage.out"

@@ -1,0 +1,29 @@
+version: "3.5"
+
+services:
+  ldap-certs-maker:
+    container_name: ldap-certs-maker
+    
+    build: .
+    volumes:
+      - "./ldap-certs/:/certs/"
+
+    command: minica -domains ldap.scriptpanel.com
+
+  openssl:
+    image: frapsoft/openssl
+    volumes:
+      - "./openssl:/export"
+    
+    #https://security.stackexchange.com/questions/95178/diffie-hellman-parameters-still-calculating-after-24-hours
+    #https://security.stackexchange.com/questions/94390/whats-the-purpose-of-dh-parameters
+    command: dhparam -dsaparam -out /export/dhparam.pem 4096
+
+  mongo-certs-maker:
+    container_name: mongo-certs-maker
+
+    build: .
+    volumes:
+      - "./mongo-certs:/certs"
+
+    command: minica -domains mongo.scriptpanel.com
